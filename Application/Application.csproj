@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Histories\Commands\Delete" />
+    <Folder Include="Histories\Commands\Update" />
+    <Folder Include="Histories\Queries" />
+    <Folder Include="Paids\Commands\Create" />
+    <Folder Include="Paids\Commands\Delete" />
+    <Folder Include="Paids\Commands\update" />
+    <Folder Include="QuotaWarehouses\Queries\IGetQuotaWarehouses" />
+    <Folder Include="Translates\Queries\GetTranslates" />
+  </ItemGroup>
+</Project>

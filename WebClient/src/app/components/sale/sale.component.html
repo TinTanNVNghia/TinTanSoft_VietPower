@@ -1,0 +1,55 @@
+<div class="ui-g">
+	<div class="ui-g-12">
+		<div class="card card-w-title">
+			<h2>Quản Lý Đơn Hàng</h2>
+			<p-dataTable [value]="sales" [tableStyle]="{'font-size':'11px'}" [resizableColumns]="true"  selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+				<p-column field="SaleDate" header="Ngày"></p-column>
+				<p-column field="Code" header="Mã"></p-column>
+				<p-column field="CustomerName" header="Tên KH"></p-column>
+				<!-- <p-column field="CustomerAddress" header="Địa Chỉ"></p-column> -->
+				<p-column field="CustomerPhone" header="Điện Thoại"></p-column>
+				<p-column field="ProductCode" header="Mã SP"></p-column>
+				<p-column field="ProductName" header="Tên SP"></p-column>
+				<p-column field="UnitCode" header="ĐVT"></p-column>
+				<p-column field="ProductForm" header="Quy Cách"></p-column>
+				<p-column field="Production" header="NSX"></p-column>
+				<p-column field="ProductPrice" header="Giá"></p-column>
+				<p-column field="Quantity" header="SL"></p-column>
+				<p-column field="Total" header="Tổng Tiền"></p-column>
+				<p-column field="Paid" header="Thanh Toán"></p-column>
+				<p-footer>
+					<div class="ui-helper-clearfix" style="width:100%">
+						<button type="button" pButton class="ui-button-success" icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Thêm"></button>
+					</div>
+				</p-footer>
+			</p-dataTable>
+
+			<p-dialog header="Chi Tiết Đơn Hàng" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="700">
+				<div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="sale">
+					<div class="ui-grid-row">
+						<div class="ui-grid-col-4"><label for="vin">Ngày</label></div>
+						<div class="ui-grid-col-8"><input pInputText id="vin" [(ngModel)]="sale.SaleDate" /></div>
+					</div>
+					<div class="ui-grid-row">
+						<div class="ui-grid-col-4"><label for="year">Mã Đơn Hàng</label></div>
+						<div class="ui-grid-col-8"><input pInputText id="year" [(ngModel)]="sale.Code" /></div>
+					</div>
+					<div class="ui-grid-row">
+						<div class="ui-grid-col-4"><label for="brand">Tên Khách Hàng</label></div>
+						<div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="sale.CustomerName" /></div>
+					</div>
+					<div class="ui-grid-row">
+						<div class="ui-grid-col-4"><label for="color">Địa Chỉ</label></div>
+						<div class="ui-grid-col-8"><input pInputText id="color" [(ngModel)]="sale.CustomerAddress" /></div>
+					</div>
+				</div>
+				<p-footer>
+					<div class="ui-dialog-buttonpane ui-helper-clearfix">
+						<button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+						<button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+					</div>
+				</p-footer>
+			</p-dialog>
+		</div>
+	</div>
+</div>
